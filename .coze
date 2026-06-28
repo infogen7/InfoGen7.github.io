@@ -1,0 +1,13 @@
+[project]
+requires = [ "nodejs-24" ]
+template = "vite"
+version = "legacy"
+appliedPatches = [ "vite/replace-npx-with-pnpm@0.0.13" ]
+
+[dev]
+build = [ "pnpm", "install" ]
+run = [ "sh", "-c", "npx serve -s dist -l ${DEPLOY_RUN_PORT}" ]
+
+[deploy]
+build = [ "bash", "-c", "pnpm install && npx vite build --outDir dist" ]
+run = [ "sh", "-c", "npx serve -s dist -l ${DEPLOY_RUN_PORT}" ]

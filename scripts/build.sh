@@ -9,6 +9,6 @@ export NODE_ENV="${NODE_ENV:-production}"
 rm -rf "$ROOT/dist"
 
 # 标准 Vite 构建：产物输出到 dist/，符合 GitHub Pages 约定
-pnpm vite build
+npx vite build
 
 echo "Build complete → dist/"
